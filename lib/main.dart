@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class HomePageTemp extends StatelessWidget {
   final opciones = [
@@ -48,7 +50,7 @@ class HomePageTemp extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text("Hola soy la "+opt),
+          Text("Hola soy la " + opt),
         ],
       ),
       actions: <Widget>[
