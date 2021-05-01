@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+void main() {
+  runApp(HomePageTemp());
+
 class HomePageTemp extends StatelessWidget {
   final opciones = [
     'opcion1',
@@ -64,4 +67,5 @@ class HomePageTemp extends StatelessWidget {
       ],
     );
   }
+}
 }
