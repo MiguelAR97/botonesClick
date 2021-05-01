@@ -1,7 +1,6 @@
+import 'package:flutter/material.dart';
 
-
-void main() {
-
+void main() => runApp(HomePageTemp());
 
 class HomePageTemp extends StatelessWidget {
   final opciones = [
@@ -66,5 +65,4 @@ class HomePageTemp extends StatelessWidget {
       ],
     );
   }
-}
 }
