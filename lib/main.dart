@@ -1,8 +1,3 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-
-void main() {
-
 
 class HomePageTemp extends StatelessWidget {
   final opciones = [
