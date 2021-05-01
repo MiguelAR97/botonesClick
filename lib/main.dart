@@ -1,24 +1,63 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MenuProvider());
+void main() => runApp(ContadorPage());
 
-class _MenuProvider {
-  List<dynamic> opciones = [];
-  _MenuProvider() {
-   // cargarData();
-  }
-
-  Future <List<dynamic>> cargarData() async{
-    
-    
-    final resp = await rootBundle.loadString('data/menu_opts.json');
-      //print(data);
-      Map dataMap = json.decode(resp);
-      print(dataMap['rutas']);
-      opciones = dataMap['rutas'];
-    
-    return opciones;
-  }
+class ContadorPage extends StatefulWidget {
+  @override
+  createState() => _ContadorPageState();
 }
 
-final menuProvider = new _MenuProvider();
+class _ContadorPageState extends State<ContadorPage> {
+  final _estiloTexto = new TextStyle(fontSize: 32);
+
+  int _conteo = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        theme: ThemeData(
+          primarySwatch: Colors.deepPurple,
+        ),
+        home: Scaffold(
+            appBar: AppBar(
+              title: Text('Contador Stateful widget'),
+              centerTitle: true,
+            ),
+            body: Center(
+                child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text('Numero de Cliks', style: _estiloTexto),
+                Text('$_conteo', style: _estiloTexto),
+              ],
+            )),
+            floatingActionButton: _crearBotones()));
+  }
+
+  Widget _crearBotones() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: <Widget>[
+        SizedBox(width: 30),
+        FloatingActionButton(
+            child: Icon(Icons.exposure_zero), onPressed: _reset),
+        Expanded(child: SizedBox()),
+        FloatingActionButton(child: Icon(Icons.remove), onPressed: __sustraer),
+        SizedBox(width: 5.0),
+        FloatingActionButton(child: Icon(Icons.add), onPressed: _agregar),
+      ],
+    );
+  }
+
+  void __sustraer() {
+    setState(() => _conteo--);
+  }
+
+  void _agregar() {
+    setState(() => _conteo++);
+  }
+
+  void _reset() {
+    setState(() => _conteo = 0);
+  }
+}
