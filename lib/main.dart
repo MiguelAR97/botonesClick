@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(HomePageTemp());
+void main() => runApp(ContadorPage());
 
 class ContadorPage extends StatefulWidget {
   @override
