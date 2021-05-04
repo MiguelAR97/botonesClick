@@ -1,21 +1,33 @@
-import 'package:flutter/material.dart';
 
-void main() => runApp(HomePageTemp());
- 
+    
+import'dart:convert';
+import'package:flutter/services.dart'show rootBundle;
+class_MenuProvider {​​​​​
+List<dynamic> opciones = [];
+_MenuProvider() {​​​​​
+// cargarData();
+  }​​​​​
+Future <List<dynamic>> cargarData() async{​​​​​
+
+final resp = await rootBundle.loadString('data/menu_opts.json');
+//print(data);
+Map dataMap = json.decode(resp);
+print(dataMap['rutas']);
+      generos = dataMap['rutas'];
+return generos;
 class HomePageTemp extends StatelessWidget {
-  final opciones = [
-    'opc1',
-    'opcion2',
-    'opcion3',
-    'opcion4',
-    'opcion5',
-    'opcion6'
+  final generos = [
+    'Genero musical 1',
+    'Genero musical 2',
+    'Genero musical 3',
+    'Genero musical 4'
+ 
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Componente Temporal'),
+        title: Text('Musica'),
       ),
       body: ListView(children: _crearWidgets(context)),
     );
@@ -23,7 +35,7 @@ class HomePageTemp extends StatelessWidget {
 
   List<Widget> _crearWidgets(BuildContext context) {
     List<Widget> lista = new List<Widget>();
-    for (String opt in opciones) {
+    for (String opt in generos) {
       final tempWidget = ListTile(
         title: Text(opt),
         subtitle: Text('Subtitulo de la ' + opt),
@@ -46,12 +58,12 @@ class HomePageTemp extends StatelessWidget {
 
   Widget _buildPopupDialog(BuildContext context, String opt) {
     return new AlertDialog(
-      title: const Text('Me diste click'),
+      title: const Text('Opcion de Música'),
       content: new Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text("Hola soy la "+opt),
+          Text("el genero es "+opt),
         ],
       ),
       actions: <Widget>[
@@ -66,3 +78,7 @@ class HomePageTemp extends StatelessWidget {
     );
   }
 }
+
+  }​​​​​
+}​​​​​
+final menuProvider = new_MenuProvider();
