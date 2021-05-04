@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(_MenuProvider());
+void main() => runApp(_ContadorPageState());
  
 class _ContadorPageState extends State<ContadorPage> {
   final _estiloTexto = new TextStyle(fontSize: 32);
