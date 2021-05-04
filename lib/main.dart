@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 void main() => runApp(_MenuProvider());
  
 class _MenuProvider {
-  List<dynamic> opciones = [];
+  List<dynamic> generos = [];
   _MenuProvider() {
    // cargarData();
   }
@@ -15,22 +15,20 @@ class _MenuProvider {
       //print(data);
       Map dataMap = json.decode(resp);
       print(dataMap['rutas']);
-      opciones = dataMap['rutas'];
+      generos = dataMap['rutas'];
     
-    return opciones;
-     final opciones = [
-    'opc1',
-    'opcion2',
-    'opcion3',
-    'opcion4',
-    'opcion5',
-    'opcion6'
+    return generos;
+     final generos = [
+    'Genero 1',
+    'Genero 2',
+    'Genero 3',
+    'Genero 4'
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Componente Temporal'),
+        title: Text('Generos de Música'),
       ),
       body: ListView(children: _crearWidgets(context)),
     );
@@ -38,7 +36,7 @@ class _MenuProvider {
 
   List<Widget> _crearWidgets(BuildContext context) {
     List<Widget> lista = new List<Widget>();
-    for (String opt in opciones) {
+    for (String opt in generos) {
       final tempWidget = ListTile(
         title: Text(opt),
         subtitle: Text('Subtitulo de la ' + opt),
@@ -66,7 +64,7 @@ class _MenuProvider {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text("Hola soy la "+opt),
+          Text("El genero es "+opt),
         ],
       ),
       actions: <Widget>[
